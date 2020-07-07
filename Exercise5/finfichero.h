@@ -11,7 +11,7 @@
 
 using namespace std;
 
-void finfichero(unsigned long long& n, string nameFile);
+void finfichero(unsigned long long n, string nameFile);
 
 #endif
 
