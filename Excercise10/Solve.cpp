@@ -1,4 +1,4 @@
-#include "Solve.h"
+ #include "Solve.h"
 
 void ReadFile(ifstream& fin, string& str) {
 	str = "";
@@ -24,7 +24,7 @@ int* Solve(string str) {
 void print(int *res) {
 	for (int i = 0; i < 26; ++i) {
 		if (res[i]) {
-			cout << char(i + 97) << ":" << res[i] << endl;
+			cout << char(i + 97) << ":["; for (int j = 0; j < res[i]; ++j) cout << "#"; cout << "]" << endl;
 		}
 	}
 }
