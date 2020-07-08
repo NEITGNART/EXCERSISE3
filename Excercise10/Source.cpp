@@ -1,32 +1,19 @@
-#include <iostream>
-#include <cstring>
-#include <string>
-#include <ctype.h>
-
-using namespace std;
-
-int* Solve(string str) {
-	int* res = new int[26];
-	for (int i = 0; i < 26; ++i) res[i] = 0;
-
-	for (size_t i = 0; i < str.size(); ++i) {
-		if (isalpha(str[i])) {
-			str[i] =  tolower(str[i]);
-		}
-		res[str[i] - 'a']++;
-	}
-	return res;
-}
+#include "Solve.h"
 
 int main(void) {
 
-	string str = "aaabcasdfasjkdfhaslkdhfkjsahdfkjhlasdlfkjhsdafcc";
-	int* res = Solve(str);
-	
-	for (int i = 0; i < 26; ++i) {
-		if (res[i]) {
-			cout << char(i + 97) << ":" << res[i] << endl;
-		}
+	ifstream fin("input.txt");
+	if (fin.fail()) {
+		cout << "Occured error when open file!";
+		return 0;
 	}
+	else {
+		string str;
+		ReadFile(fin, str);
+		int* res = Solve(str);
+		print(res);
+	}
+	
+	
 	return 0;
 }
